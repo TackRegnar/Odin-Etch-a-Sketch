@@ -48,7 +48,15 @@ function enable_controls() {
 function color_changer(color) {
   const chosen_color_preview = document.getElementsByClassName("chosen_color_preview")[0];
   chosen_color_preview.style.backgroundColor = color;
-  start_brush(color)
+  start_brush(color);
+}
+
+function remove_grid() {
+  const old_grid = document.getElementsByClassName("block");
+  let y = old_grid.length;
+  for (let i = 0; i < y; i++) {
+    old_grid[0].remove();
+  }
 }
 
 make_grid()
