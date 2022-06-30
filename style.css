@@ -1,6 +1,11 @@
-#main{
+html {
+  background-color: #131516;
+}
+
+#main {
   display: flex;
   justify-content: center;
+  gap: 75px;
 }
 
 .block_container {
@@ -10,7 +15,18 @@
   height: 500px;
 }
 
-.block {
-  background-color: yellow;
-  text-align: center;
+/* .block { */
+/*   text-align: center; */
+/* } */
+
+.lightgrey {
+  background-color: lightgrey;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
 }
