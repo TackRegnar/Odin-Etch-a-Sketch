@@ -21,18 +21,34 @@ function start_brush(color) {
 }
 
 function enable_controls() {
-  const paint_btn = document.getElementsByClassName("paint_btn")[0];
-  paint_btn.addEventListener('click', () => {
-    start_brush("green");
+  //erase button
+  const erase_btn = document.getElementsByClassName("erase_btn")[0];
+  erase_btn.addEventListener('click', () => {
+    color_changer("lightgrey");
+  });
+  //Colour buttons
+  const red_btn = document.getElementsByClassName("red_btn")[0];
+  red_btn.addEventListener('click', () => {
+    color_changer("red");
   });
   const green_btn = document.getElementsByClassName("green_btn")[0];
   green_btn.addEventListener('click', () => {
-    start_brush("green");
+    color_changer("green");
   });
-  const erase_btn = document.getElementsByClassName("erase_btn")[0];
-  erase_btn.addEventListener('click', () => {
-    start_brush("lightgrey");
+  const blue_btn = document.getElementsByClassName("blue_btn")[0];
+  blue_btn.addEventListener('click', () => {
+    color_changer("blue");
   });
+  const orange_btn = document.getElementsByClassName("orange_btn")[0];
+  orange_btn.addEventListener('click', () => {
+    color_changer("orange");
+  });
+}
+
+function color_changer(color) {
+  const chosen_color_preview = document.getElementsByClassName("chosen_color_preview")[0];
+  chosen_color_preview.style.backgroundColor = color;
+  start_brush(color)
 }
 
 make_grid()
