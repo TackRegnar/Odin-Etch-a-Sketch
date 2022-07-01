@@ -25,11 +25,22 @@ function make_grid() {
   main.appendChild(block_container).className = "block_container";
 }
 
+//starts the main paint brush.
 function start_brush(color) {
   let blocks = document.getElementsByClassName("block")
   for (let i = 0; i < blocks.length; i++) {
     blocks[i].addEventListener('mouseover', () => {
       blocks[i].className = "block " + color;
+    }, true);
+  }
+}
+
+//starts the random color brush
+function start_random_brush() {
+  let blocks = document.getElementsByClassName("block")
+  for (let i = 0; i < blocks.length; i++) {
+    blocks[i].addEventListener('mouseover', () => {
+      blocks[i].className = "block " + random_color();
     }, true);
   }
 }
@@ -41,6 +52,11 @@ function enable_controls() {
     remove_grid();
     make_grid();
     color_changer("red");
+  });
+  //random color button
+  const random_btn = document.getElementsByClassName("random_btn")[0];
+  random_btn.addEventListener('click', () => {
+    start_random_brush();
   });
   //erase button
   const erase_btn = document.getElementsByClassName("erase_btn")[0];
@@ -81,6 +97,30 @@ function color_changer(color) {
 function remove_grid() {
   const old_grid = document.getElementsByClassName("block_container")[0];
   old_grid.remove();
+}
+
+//random colours
+function random_color() {
+  let x = random(1, 5);
+
+  switch (x) {
+    case 1:
+      return "purple";
+    case 2:
+      return "green";
+    case 3:
+      return "blue";
+    case 4:
+      return "red";
+    case 5:
+      return "orange";
+    default:
+      return "error";
+  }
+}
+//gets random number for the random_color function.
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 make_grid()
