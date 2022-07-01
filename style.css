@@ -6,6 +6,7 @@ html {
   display: flex;
   justify-content: center;
   gap: 75px;
+  margin-top: 50px;
 }
 
 .block_container {
@@ -37,4 +38,8 @@ html {
 
 .orange {
   background-color: orange;
+}
+
+.purple {
+  background-color: purple;
 }

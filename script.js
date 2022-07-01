@@ -1,9 +1,11 @@
 function make_grid() {
+  // remove_grid();
+  let grid_size = document.getElementsByClassName("grid_size_num")[0].value;
   let main = document.getElementById("main");
   let block_container = document.createElement("div");
 
-  for (let i = 1; i <= 16; i++) {
-    for (let k = 1; k <= 16; k++) {
+  for (let i = 1; i <= grid_size; i++) {
+    for (let k = 1; k <= grid_size; k++) {
       let block = document.createElement("div");
       block_container.appendChild(block).className = "block lightgrey";
     }
@@ -21,6 +23,13 @@ function start_brush(color) {
 }
 
 function enable_controls() {
+  //crate new grid button
+  const grid_size_btn = document.getElementsByClassName("grid_size_btn")[0];
+  grid_size_btn.addEventListener('click', () => {
+    remove_grid();
+    make_grid();
+    color_changer("red");
+  });
   //erase button
   const erase_btn = document.getElementsByClassName("erase_btn")[0];
   erase_btn.addEventListener('click', () => {
@@ -52,11 +61,12 @@ function color_changer(color) {
 }
 
 function remove_grid() {
-  const old_grid = document.getElementsByClassName("block");
-  let y = old_grid.length;
-  for (let i = 0; i < y; i++) {
-    old_grid[0].remove();
-  }
+  const old_grid = document.getElementsByClassName("block_container")[0];
+  old_grid.remove();
+  // let y = old_grid.length;
+  // for (let i = 0; i < y; i++) {
+  //   old_grid[0].remove();
+  // }
 }
 
 make_grid()
