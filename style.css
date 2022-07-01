@@ -11,15 +11,16 @@ html {
 
 .block_container {
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
-  width: 500px;
-  height: 500px;
+  width: 700px;
+  height: 700px;
 }
 
 /* .block { */
-/*   text-align: center; */
+
 /* } */
 
+
+/* ~~~~~colours~~~~~~ */
 .lightgrey {
   background-color: lightgrey;
 }
