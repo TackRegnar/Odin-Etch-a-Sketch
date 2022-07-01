@@ -1,8 +1,13 @@
 function make_grid() {
-  // remove_grid();
   let grid_size = document.getElementsByClassName("grid_size_num")[0].value;
   let main = document.getElementById("main");
   let block_container = document.createElement("div");
+
+  if (grid_size > 100) {
+    grid_size = 100;
+  } else if (grid_size < 1) {
+    grid_size = 1;
+  }
 
   for (let i = 1; i <= grid_size; i++) {
     for (let k = 1; k <= grid_size; k++) {
@@ -63,10 +68,6 @@ function color_changer(color) {
 function remove_grid() {
   const old_grid = document.getElementsByClassName("block_container")[0];
   old_grid.remove();
-  // let y = old_grid.length;
-  // for (let i = 0; i < y; i++) {
-  //   old_grid[0].remove();
-  // }
 }
 
 make_grid()
